@@ -1,10 +1,17 @@
-import classes from './CartItem.module.css';
-
+import classes from "./CartItem.module.css";
+// import { useRef } from "react";
+// import CartContext from "../../store/cart-context";
 const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
-
+  // const item = props.item;
+  const onAddHandler = () => {
+    props.onAdd(props.item);
+  };
+  const onSubHandler = () => {
+    props.onRemove(props.item.id);
+  };
   return (
-    <li className={classes['cart-item']}>
+    <li className={classes["cart-item"]}>
       <div>
         <h2>{props.name}</h2>
         <div className={classes.summary}>
@@ -13,8 +20,9 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={props.onRemove}>−</button>
-        <button onClick={props.onAdd}>+</button>
+        <button onClick={onSubHandler}>−</button>
+
+        <button onClick={onAddHandler}>+</button>
       </div>
     </li>
   );
