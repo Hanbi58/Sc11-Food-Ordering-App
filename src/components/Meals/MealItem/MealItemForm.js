@@ -20,7 +20,7 @@ const MealItemForm = (props) => {
           type: "number",
           min: 1,
           max: 100,
-          defaultValue: 0,
+          defaultValue: 1,
         }}
       />
       <button>+ Add</button>
